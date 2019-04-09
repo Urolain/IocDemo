@@ -11,12 +11,14 @@ public class Demo2Test {
     @Before
     public void before(){
         container.setBean(Benz.class,"benz");
-        container.setBean(HumanWithCar.class,"zhangsan","benz");
+        container.setBean(HumanWithCar.class,"humanWithCar","张三","benz");
     }
 
     @Test
     public void test(){
-        HumanWithCar zhangSan = (HumanWithCar) container.getBean("zhangsan");
+        HumanWithCar zhangSan = (HumanWithCar) container.getBean("humanWithCar");
+        zhangSan.setName("张三");
         zhangSan.goHome();
     }
+
 }
