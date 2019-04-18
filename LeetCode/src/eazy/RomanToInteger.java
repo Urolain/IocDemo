@@ -1,24 +1,23 @@
 package eazy;
 
-/**
- * 罗马数字转整数
- * roman-to-integer
- * I             1
- * V             5
- * X             10
- * L             50
- * C             100
- * D             500
- * M             1000
- * 存在以下特殊使用
- * I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
- * X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。
- * C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
- */
+
 public class RomanToInteger {
 
     /**
      *  23ms 39.7MB
+     * 罗马数字转整数
+     * roman-to-integer
+     * I             1
+     * V             5
+     * X             10
+     * L             50
+     * C             100
+     * D             500
+     * M             1000
+     * 存在以下特殊使用
+     * I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+     * X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。
+     * C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
      * @param roman 罗马数字
      * @return 1~3999    I~MMMDCCCCLXXXXVIIII
      */
@@ -67,5 +66,19 @@ public class RomanToInteger {
             }
         }
         return result > 3999 ? 0:result;
+    }
+
+
+    public static String Int2Roman(int num) {
+        int[] values={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String[] reps={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        StringBuilder result=new StringBuilder();
+        for(int i=0;i<13;i++){
+            while(num>=values[i]){
+                num-=values[i];
+                result.append(reps[i]);
+            }
+        }
+        return new String(result);
     }
 }
