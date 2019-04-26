@@ -5,3 +5,23 @@ luckymoney:
     minMoney: 0.01
     maxMoney: 200
     description:  单个红包金额不能低于${luckymoney.limit.minMoney}元,不能高于${luckymoney.limit.maxMoney}元
+
+spring:
+  datasource:
+    #    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/luckymoney?useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    username: root
+    password: 123456
+    hikari:
+      # Hikari 数据源专用配置
+      maximum-pool-size: 20
+      minimum-idle: 5
+  # JPA 相关配置
+  jpa:
+    #建表的时候，将默认的存储引擎切换为 InnoDB
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    hibernate:
+      #create 会把对应的表删除掉然后重建
+      ddl-auto: update

@@ -7,15 +7,10 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
-
 server:
   port: 8081
   tomcat:
     uri-encoding: utf-8
 
-luckymoney:
-  limit:
-    minMoney: 1
-    maxMoney: 200
-    description:  单个红包金额不能低于${luckymoney.limit.minMoney}元,不能高于${luckymoney.limit.maxMoney}元
+
 
